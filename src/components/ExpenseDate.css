@@ -1,0 +1,9 @@
+.card-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
+}
