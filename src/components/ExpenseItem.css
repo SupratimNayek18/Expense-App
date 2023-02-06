@@ -1,5 +1,6 @@
 .card {
-  width: 600px;
+  width: 70%;
+  max-width: 800px;
   /* height: 150px; */
   padding: 30px 0 30px 0;
   background: #07182e;
@@ -35,7 +36,7 @@
     rgb(0, 183, 255),
     rgb(255, 48, 255)
   );
-  height: 450%;
+  height: 600%;
   animation: rotBGimg 5s linear infinite;
   transition: all 0.2s linear;
 }

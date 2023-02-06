@@ -20,7 +20,6 @@ function ExpenseDate() {
     "December",
   ];
   const month = monthArray[date.getMonth()];
-  console.log(day + " " + month + " " + year);
   return (
     <div className="card-date">
       <p className="date-month">{month}</p>

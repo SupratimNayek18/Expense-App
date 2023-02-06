@@ -1,4 +1,5 @@
 import "./App.css";
+import ExpenseForm from "./components/ExpenseForm";
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <span className="title">Expense App</span>
         </div>
       </div>
+      <ExpenseForm />
       <div className="expense-items-div">
         {products.map((data) => {
           return <ExpenseItem data={data} />;
