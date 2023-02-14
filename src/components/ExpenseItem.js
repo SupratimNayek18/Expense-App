@@ -2,8 +2,8 @@ import { useState } from "react";
 import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
-function ExpenseItem({ data }) {
-  const [title, setTitle] = useState(data.title);
+function ExpenseItem({ title, price, description }) {
+  const [stateTitle, setTitle] = useState(title);
   const clickHandler = () => {
     setTitle("Updated!");
   };
@@ -11,9 +11,9 @@ function ExpenseItem({ data }) {
     <div className="card">
       <div className="card-content">
         <ExpenseDate />
-        <h2>{title}</h2>
-        <h2>{data.price}</h2>
-        <h2>{data.description}</h2>
+        <h2>{stateTitle}</h2>
+        <h2>{price}</h2>
+        <h2>{description}</h2>
         <button onClick={clickHandler}>Change Title</button>
       </div>
     </div>
