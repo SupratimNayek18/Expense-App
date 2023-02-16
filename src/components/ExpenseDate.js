@@ -1,5 +1,5 @@
 import React from "react";
-import "./ExpenseDate.css";
+import styles from "./ExpenseDate.module.css";
 
 function ExpenseDate() {
   const date = new Date();
@@ -21,10 +21,10 @@ function ExpenseDate() {
   ];
   const month = monthArray[date.getMonth()];
   return (
-    <div className="card-date">
-      <p className="date-month">{month}</p>
-      <p className="date-day">{day}</p>
-      <p className="date-year">{year}</p>
+    <div className={styles.card_date}>
+      <p className="date_month">{month}</p>
+      <p className="date_day">{day}</p>
+      <p className="date_year">{year}</p>
     </div>
   );
 }

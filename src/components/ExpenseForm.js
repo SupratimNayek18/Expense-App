@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./ExpenseForm.css";
+import styles from "./ExpenseForm.module.css";
 function ExpenseForm({ addNewExpense }) {
   const [startDate, setStartDate] = useState(new Date());
   const [expenseName, setExpenseName] = useState("");
@@ -24,12 +24,12 @@ function ExpenseForm({ addNewExpense }) {
   };
 
   return (
-    <form className="form-outer-div" onSubmit={handleSubmit}>
-      <div className="form-title">
+    <form className={styles.form_outer_div} onSubmit={handleSubmit}>
+      <div className={styles.form_title}>
         <h3>Please Submit Your Expense Here</h3>
       </div>
-      <div className="form-inner-div">
-        <div className="input-group">
+      <div className={styles.form_inner_div}>
+        <div className={styles.input_group}>
           <DatePicker
             selected={startDate}
             onChange={(date) => {
@@ -37,38 +37,38 @@ function ExpenseForm({ addNewExpense }) {
             }}
             wrapperClassName="datePicker"
             dateFormat="dd/MM/yyyy"
-            className="input"
+            className={styles.input}
           />
         </div>
-        <div className="input-group">
+        <div className={styles.input_group}>
           <input
             type="text"
-            className="input"
+            className={styles.input}
             onChange={(event) => setExpenseName(event.target.value)}
             required
           />
-          <label className="user-label">Expense Name</label>
+          <label className={styles.user_label}>Expense Name</label>
         </div>
-        <div className="input-group">
+        <div className={styles.input_group}>
           <input
             type="text"
-            className="input"
+            className={styles.input}
             onChange={(event) => setExpenseCost(event.target.value)}
             required
           />
-          <label className="user-label">Expense Cost</label>
+          <label className={styles.user_label}>Expense Cost</label>
         </div>
-        <div className="input-group">
+        <div className={styles.input_group}>
           <input
             type="text"
-            className="input"
+            className={styles.input}
             onChange={(event) => setExpenseDescription(event.target.value)}
             required
           />
-          <label className="user-label">Expense Description</label>
+          <label className={styles.user_label}>Expense Description</label>
         </div>
       </div>
-      <button type="submit" className="expense-form-submit-button">
+      <button type="submit" className={styles.expense_form_submit_button}>
         <span></span>
         <span></span>
         <span></span>

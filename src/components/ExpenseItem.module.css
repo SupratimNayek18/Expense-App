@@ -13,7 +13,7 @@
   margin-bottom: 5%;
 }
 
-.card-content {
+.card_content {
   width: 90%;
   z-index: 1;
   display: flex;
@@ -23,7 +23,7 @@
   background: none;
 }
 
-.card-content h2 {
+.card_content h2 {
   background: none;
 }
 

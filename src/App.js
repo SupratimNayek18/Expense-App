@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseItem from "./components/ExpenseItem";
+
+import styles from "./App.module.css";
 
 function App() {
   const expenses = [
@@ -37,14 +38,14 @@ function App() {
   };
 
   return (
-    <div className="main">
-      <div className="container">
-        <div className="box">
-          <span className="title">Expense App</span>
+    <div className={styles.main}>
+      <div className={styles.container}>
+        <div className={styles.box}>
+          <span className={styles.title}>Expense App</span>
         </div>
       </div>
       <ExpenseForm addNewExpense={addNewExpense} />
-      <div className="expense-items-div">
+      <div className={styles.expense_items_div}>
         {expenseState.map((data) => {
           return (
             <ExpenseItem
