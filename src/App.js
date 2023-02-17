@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseItem from "./components/ExpenseItem";
 
 import styles from "./App.module.css";
+import Loader from "./loader/Loader";
 
 function App() {
   const expenses = [
@@ -32,6 +33,14 @@ function App() {
     },
   ];
   const [expenseState, setExpenseState] = useState(expenses);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
 
   const addNewExpense = (newExpense) => {
     setExpenseState([newExpense, ...expenseState]);
@@ -39,24 +48,32 @@ function App() {
 
   return (
     <div className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.box}>
-          <span className={styles.title}>Expense App</span>
+      {isLoading ? (
+        <div className={styles.loader_container}>
+          <Loader />
         </div>
-      </div>
-      <ExpenseForm addNewExpense={addNewExpense} />
-      <div className={styles.expense_items_div}>
-        {expenseState.map((data) => {
-          return (
-            <ExpenseItem
-              key={data.id}
-              title={data.title}
-              price={data.price}
-              description={data.description}
-            />
-          );
-        })}
-      </div>
+      ) : (
+        <div className={styles.main_loader_group}>
+          <div className={styles.container}>
+            <div className={styles.box}>
+              <span className={styles.title}>Expense App</span>
+            </div>
+          </div>
+          <ExpenseForm addNewExpense={addNewExpense} />
+          <div className={styles.expense_items_div}>
+            {expenseState.map((data) => {
+              return (
+                <ExpenseItem
+                  key={data.id}
+                  title={data.title}
+                  price={data.price}
+                  description={data.description}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
