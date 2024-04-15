@@ -46,6 +46,10 @@ function App() {
     setExpenseState([newExpense, ...expenseState]);
   };
 
+  const removeExpense = (index) => {
+    setExpenseState(expenseState.filter((_, i) => i !== index));
+  };
+
   return (
     <div className={styles.main}>
       {isLoading ? (
@@ -61,13 +65,15 @@ function App() {
           </div>
           <ExpenseForm addNewExpense={addNewExpense} />
           <div className={styles.expense_items_div}>
-            {expenseState.map((data) => {
+            {expenseState.map((data, index) => {
               return (
                 <ExpenseItem
                   key={data.id}
+                  index={index}
                   title={data.title}
                   price={data.price}
                   description={data.description}
+                  removeExpense={removeExpense}
                 />
               );
             })}
